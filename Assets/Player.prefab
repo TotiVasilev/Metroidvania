@@ -43,9 +43,8 @@ GameObject:
   - component: {fileID: 5403178635399505087}
   - component: {fileID: 5403178635399505072}
   - component: {fileID: 5403178635399505073}
-  - component: {fileID: 5403178635399505075}
-  - component: {fileID: 5403178635399505074}
   - component: {fileID: -1895219191070095467}
+  - component: {fileID: 2892635689179388031}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -161,32 +160,6 @@ Rigidbody2D:
   m_SleepingMode: 0
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!114 &5403178635399505075
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5403178635399505082}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f1529c454d71a774388aaf63a4f6258c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &5403178635399505074
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5403178635399505082}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c64e6ff147d6c76459fe748f901f1cf7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 0
-  maxHealth: 10
 --- !u!61 &-1895219191070095467
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -213,3 +186,23 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.996111, y: 1.9493271}
   m_EdgeRadius: 0
+--- !u!95 &2892635689179388031
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5403178635399505082}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
