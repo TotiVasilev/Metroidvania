@@ -1962,48 +1962,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1586110240}
   m_CullTransparentMesh: 1
---- !u!1 &1646693955 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5403178635399505082, guid: edbc0d6fa3a1104458f488e169ace637, type: 3}
-  m_PrefabInstance: {fileID: 5403178633819925241}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1646693956 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5403178635399505085, guid: edbc0d6fa3a1104458f488e169ace637, type: 3}
   m_PrefabInstance: {fileID: 5403178633819925241}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1646693964
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1646693955}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4492cd8c64273264b86889261856befa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 3
-  maxHealth: 3
-  emptyHearth: {fileID: 21300000, guid: 6ca9e3bc12bfb0f4c825a53852a9c1dd, type: 3}
-  fullHealth: {fileID: 21300000, guid: 20ef74bb887bc854d958bbef02496a7b, type: 3}
-  hearts:
-  - {fileID: 812269620}
-  - {fileID: 1586110242}
-  - {fileID: 1662260154}
-  playerHealth: {fileID: 1646693965}
---- !u!114 &1646693965 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5403178635399505074, guid: edbc0d6fa3a1104458f488e169ace637, type: 3}
-  m_PrefabInstance: {fileID: 5403178633819925241}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1646693955}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c64e6ff147d6c76459fe748f901f1cf7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1662260152
 GameObject:
   m_ObjectHideFlags: 0
@@ -2531,7 +2494,7 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -1.248
       objectReference: {fileID: 0}
-    - target: {fileID: 5403178635399505074, guid: edbc0d6fa3a1104458f488e169ace637, type: 3}
+    - target: {fileID: 0}
       propertyPath: maxHealth
       value: 3
       objectReference: {fileID: 0}
