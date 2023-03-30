@@ -2527,6 +2527,10 @@ PrefabInstance:
       propertyPath: m_SpriteTilingProperty.oldSize.y
       value: 2.5
       objectReference: {fileID: 0}
+    - target: {fileID: 5403178634135797605, guid: edbc0d6fa3a1104458f488e169ace637, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.248
+      objectReference: {fileID: 0}
     - target: {fileID: 5403178635399505074, guid: edbc0d6fa3a1104458f488e169ace637, type: 3}
       propertyPath: maxHealth
       value: 3
