@@ -123,10 +123,12 @@ public class MovePlayer : MonoBehaviour
 
     void Attack()
     {
+        
         if(Input.GetKeyDown(KeyCode.R) && !isAttacking)
         {
             isAttacking = true;
             
+
         }
     }
 
