@@ -31,8 +31,14 @@ public class MovePlayer : MonoBehaviour
     [SerializeField] private LayerMask groundLayer;//every collision with object in this layer = IsGrounded
     bool run; 
     public AudioSource foosteps;
+    
+    public bool isAttacking = false;
+    public static MovePlayer instance;
 
-
+    private void Awake()
+    {
+        instance = this;
+    }
     void Start()
     {
         animator = gameObject.GetComponent<Animator>();
@@ -56,6 +62,7 @@ public class MovePlayer : MonoBehaviour
 
     void Update()
     {
+        Attack();
         //Horizontal movement
         horizontal = Input.GetAxisRaw("Horizontal");
         vertical = Input.GetAxisRaw ("Vertical");
@@ -111,6 +118,15 @@ public class MovePlayer : MonoBehaviour
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
 
             coyoteTimeCounter = 0f;
+        }
+    }
+
+    void Attack()
+    {
+        if(Input.GetKeyDown(KeyCode.R) && !isAttacking)
+        {
+            isAttacking = true;
+            
         }
     }
 

@@ -13,7 +13,7 @@ public class HPDisplay : MonoBehaviour
 
     public PlayerHealth playerHealth;//reference for the player's health variable
     
-
+ 
     
     void Update()
     {
