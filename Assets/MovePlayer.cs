@@ -34,6 +34,10 @@ public class MovePlayer : MonoBehaviour
     
     public bool isAttacking = false;
     public static MovePlayer instance;
+    public Transform attackPoint;
+    public float attackRange = 0.5f;
+    public LayerMask enemyLayers;
+    public int attackDamage = 40;
 
     private void Awake()
     {
@@ -130,12 +134,26 @@ public class MovePlayer : MonoBehaviour
     void Attack()
     {
         
-        if(Input.GetKeyDown(KeyCode.R) && !isAttacking)
+
+        if (Input.GetKeyDown(KeyCode.R) && !isAttacking)
         {
             isAttacking = true;
-            
+            Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
+            foreach(Collider2D enemy in hitEnemies)
+            {
+                //Enemy is the script, not the object
+                enemy.GetComponent<Enemy>().TakeDamage(attackDamage);
+            }
 
         }
+    }
+
+    void OnDrawGizmosSelected()
+    {
+        if(attackPoint == null)
+        return;
+
+        Gizmos.DrawWireSphere(attackPoint.position, attackRange);
     }
 
    public void OnLanding()
