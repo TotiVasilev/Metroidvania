@@ -53,18 +53,24 @@ public class MovePlayer : MonoBehaviour
 
     void StartRun()
         {
-            if(run)
+            if(!isAttacking)
             {
+                horizontal = Input.GetAxisRaw("Horizontal");
               animator.SetFloat("Running", Math.Abs(horizontal));
+              
             }
+           
         }
         
 
     void Update()
     {
+        
+
         Attack();
         //Horizontal movement
-        horizontal = Input.GetAxisRaw("Horizontal");
+    
+        
         vertical = Input.GetAxisRaw ("Vertical");
         
        
