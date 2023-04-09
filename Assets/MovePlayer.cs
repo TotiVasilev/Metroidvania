@@ -37,7 +37,19 @@ public class MovePlayer : MonoBehaviour
     public Transform attackPoint;
     public float attackRange = 0.5f;
     public LayerMask enemyLayers;
-    public int attackDamage = 40;
+    public int attackDamage = 10;
+
+    public bool attack2;
+    public bool attack3 = false;
+    public Transform attackPoint3;
+    public float attackRange3 = 0.5f;
+    public int attackDamage3 = 20;
+
+    public GameObject HitBox;
+    public GameObject HitBox3;
+
+
+    
 
     private void Awake()
     {
@@ -46,6 +58,9 @@ public class MovePlayer : MonoBehaviour
     void Start()
     {
         animator = gameObject.GetComponent<Animator>();
+        HitBox.SetActive(true);
+        HitBox3.SetActive(false);
+            
     }
 
     //Checking if we can jump
@@ -138,13 +153,32 @@ public class MovePlayer : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.R) && !isAttacking)
         {
             isAttacking = true;
-            Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
-            foreach(Collider2D enemy in hitEnemies)
-            {
-                //Enemy is the script, not the object
-                enemy.GetComponent<Enemy>().TakeDamage(attackDamage);
-            }
+           
+            
+            HitBox.SetActive(true);
+            HitBox3.SetActive(false);
+            
+                Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
+                foreach(Collider2D enemy in hitEnemies)
+                {
+                    //Enemy is the script, not the object
+                    enemy.GetComponent<Enemy>().TakeDamage(attackDamage);
+                    
+                }
+            
 
+            if (attack3)
+            {
+               HitBox.SetActive(false);
+               HitBox3.SetActive(true);
+                
+                Collider2D[] hitEnemies3 = Physics2D.OverlapCircleAll(attackPoint3.position, attackRange3, enemyLayers);
+                foreach(Collider2D enemy in hitEnemies3)
+                {
+                    enemy.GetComponent<Enemy>().TakeDamage(30);
+                    Debug.Log("Attack3");
+                }
+            }
         }
     }
 
@@ -154,6 +188,8 @@ public class MovePlayer : MonoBehaviour
         return;
 
         Gizmos.DrawWireSphere(attackPoint.position, attackRange);
+        Gizmos.DrawWireSphere(attackPoint3.position, attackRange3);
+       
     }
 
    public void OnLanding()

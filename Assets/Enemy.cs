@@ -4,9 +4,14 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    public static Enemy instanceE;
     public int maxHealth = 100;
     private int currentHealth;
 
+    private void Awake()
+    {
+        instanceE = this;
+    }
     void Start()
     {
         currentHealth = maxHealth;

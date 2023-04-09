@@ -2,28 +2,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class IdleBehaviour : StateMachineBehaviour
+public class Attack3 : StateMachineBehaviour
 {
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-       MovePlayer.instance.attack3 = false; 
+          //MovePlayer.instance.attack3 = true;
     }
 
-    //OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
-    override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    {
-        if(MovePlayer.instance.isAttacking)
-        {
-            MovePlayer.instance.animator.Play("Attacking1");
+    // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
+    //override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    //{
+       // if(MovePlayer.instance.isAttacking)
+       // {
+       //    MovePlayer.instance.animator.Play("Attacking1");
             
-        }
-    }
+       // }
+    //}
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-            MovePlayer.instance.isAttacking = false;
+       MovePlayer.instance.isAttacking = false; 
+       //MovePlayer.instance.attack3 = false;
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()
