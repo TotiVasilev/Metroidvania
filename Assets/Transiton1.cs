@@ -16,8 +16,7 @@ public class Transiton1 : StateMachineBehaviour
         if(MovePlayer.instance.isAttacking)
         {
             MovePlayer.instance.animator.Play("Attacking2");
-            MovePlayer.instance.attack3 = false;
-            MovePlayer.instance.attack2 = true;
+           
         }
         
     }
