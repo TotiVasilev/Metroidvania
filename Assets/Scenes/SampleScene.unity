@@ -33133,6 +33133,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3962492036657528084, guid: 05a18db2bc9460e4c81be9ed8195fcdc, type: 3}
+      propertyPath: maxHealth
+      value: 100000
+      objectReference: {fileID: 0}
     - target: {fileID: 3962492036657528085, guid: 05a18db2bc9460e4c81be9ed8195fcdc, type: 3}
       propertyPath: m_Enabled
       value: 1

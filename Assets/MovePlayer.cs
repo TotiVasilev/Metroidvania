@@ -84,7 +84,22 @@ public class MovePlayer : MonoBehaviour
 
     void Update()
     {
-        
+        if(isAttacking)
+        {
+            if (attack3)
+            {
+                
+               HitBox.SetActive(false);
+               HitBox3.SetActive(true);
+                
+                Collider2D[] hitEnemies3 = Physics2D.OverlapCircleAll(attackPoint3.position, attackRange3, enemyLayers);
+                foreach(Collider2D enemy in hitEnemies3)
+                {
+                    enemy.GetComponent<Enemy>().TakeDamage(30);
+                    Debug.Log("Attack3HIT");
+                }
+            }
+        }
 
         Attack();
         //Horizontal movement
@@ -167,18 +182,7 @@ public class MovePlayer : MonoBehaviour
                 }
             
 
-            if (attack3)
-            {
-               HitBox.SetActive(false);
-               HitBox3.SetActive(true);
-                
-                Collider2D[] hitEnemies3 = Physics2D.OverlapCircleAll(attackPoint3.position, attackRange3, enemyLayers);
-                foreach(Collider2D enemy in hitEnemies3)
-                {
-                    enemy.GetComponent<Enemy>().TakeDamage(30);
-                    Debug.Log("Attack3");
-                }
-            }
+            
         }
     }
 
