@@ -48,7 +48,10 @@ public class MovePlayer : MonoBehaviour
     public GameObject HitBox;
     public GameObject HitBox3;
 
-
+    [Header("AttackShake")]
+    [SerializeField] private cameraShake camerashaking;
+    [SerializeField] private float shakeIntensity = 5;
+    [SerializeField] private float shakeTime = 1;
     
 
     private void Awake()
@@ -82,6 +85,13 @@ public class MovePlayer : MonoBehaviour
         }
         
 
+    IEnumerator HitTime(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        camerashaking.ShakeCamera(shakeIntensity, shakeTime);
+
+
+    }
     void Update()
     {
         if(isAttacking)
@@ -91,12 +101,13 @@ public class MovePlayer : MonoBehaviour
                 
                HitBox.SetActive(false);
                HitBox3.SetActive(true);
-                
+                StartCoroutine(HitTime(.6f));
                 Collider2D[] hitEnemies3 = Physics2D.OverlapCircleAll(attackPoint3.position, attackRange3, enemyLayers);
                 foreach(Collider2D enemy in hitEnemies3)
                 {
                     enemy.GetComponent<Enemy>().TakeDamage(30);
                     Debug.Log("Attack3HIT");
+                    
                 }
             }
         }

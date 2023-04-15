@@ -7955,6 +7955,7 @@ GameObject:
   - component: {fileID: 681180950}
   - component: {fileID: 681180952}
   - component: {fileID: 681180951}
+  - component: {fileID: 681180953}
   m_Layer: 0
   m_Name: cm
   m_TagString: Untagged
@@ -8032,6 +8033,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &681180953
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 681180949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68bb026fafb42b14791938953eaace77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_NoiseProfile: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
+  m_PivotOffset: {x: 0, y: 0, z: 0}
+  m_AmplitudeGain: 1
+  m_FrequencyGain: 1
+  mNoiseOffsets: {x: 0, y: 0, z: 0}
 --- !u!1 &691377704
 GameObject:
   m_ObjectHideFlags: 0
@@ -8042,6 +8060,7 @@ GameObject:
   m_Component:
   - component: {fileID: 691377706}
   - component: {fileID: 691377705}
+  - component: {fileID: 691377707}
   m_Layer: 0
   m_Name: CM vcam1
   m_TagString: Untagged
@@ -8103,6 +8122,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &691377707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 691377704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21359c1be7bba4c408d6f70cd13a2525, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1015270626
 GameObject:
   m_ObjectHideFlags: 0
@@ -32851,6 +32882,10 @@ PrefabInstance:
       value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 5403178635399505072, guid: edbc0d6fa3a1104458f488e169ace637, type: 3}
+      propertyPath: shakeTime
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5403178635399505072, guid: edbc0d6fa3a1104458f488e169ace637, type: 3}
       propertyPath: attackPoint
       value: 
       objectReference: {fileID: 1612814622}
@@ -32873,6 +32908,14 @@ PrefabInstance:
     - target: {fileID: 5403178635399505072, guid: edbc0d6fa3a1104458f488e169ace637, type: 3}
       propertyPath: attackDamage3
       value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 5403178635399505072, guid: edbc0d6fa3a1104458f488e169ace637, type: 3}
+      propertyPath: camerashaking
+      value: 
+      objectReference: {fileID: 691377707}
+    - target: {fileID: 5403178635399505072, guid: edbc0d6fa3a1104458f488e169ace637, type: 3}
+      propertyPath: shakeIntensity
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5403178635399505072, guid: edbc0d6fa3a1104458f488e169ace637, type: 3}
       propertyPath: enemyLayers.m_Bits
