@@ -6,7 +6,7 @@ public class Enemy : MonoBehaviour
 {
     public static Enemy instanceE;
     public int maxHealth = 100;
-    private int currentHealth;
+    public int currentHealth;
 
     private void Awake()
     {

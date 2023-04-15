@@ -31,6 +31,7 @@ public class MovePlayer : MonoBehaviour
     [SerializeField] private LayerMask groundLayer;//every collision with object in this layer = IsGrounded
     bool run; 
     public AudioSource foosteps;
+  
     
     public bool isAttacking = false;
     public static MovePlayer instance;
@@ -65,7 +66,28 @@ public class MovePlayer : MonoBehaviour
         HitBox3.SetActive(false);
             
     }
+    
+    public void DoDMG3()
+    {
+        Collider2D[] hitEnemies3 = Physics2D.OverlapCircleAll(attackPoint3.position, attackRange3, enemyLayers);
+                foreach(Collider2D enemy in hitEnemies3)
+                {
+                    enemy.GetComponent<Enemy>().TakeDamage(30);
+                   Debug.Log("Attack3HIT");
+                    
+                }
+    }
 
+    public void DoDMG12()
+    {
+        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
+                foreach(Collider2D enemy in hitEnemies)
+                {
+                    //Enemy is the script, not the object
+                    enemy.GetComponent<Enemy>().TakeDamage(attackDamage);
+                    
+                }
+    }
     //Checking if we can jump
     private bool IsGrounded()
     {
@@ -90,7 +112,6 @@ public class MovePlayer : MonoBehaviour
         yield return new WaitForSeconds(seconds);
         camerashaking.ShakeCamera(shakeIntensity, shakeTime);
 
-
     }
     void Update()
     {
@@ -102,13 +123,13 @@ public class MovePlayer : MonoBehaviour
                HitBox.SetActive(false);
                HitBox3.SetActive(true);
                 StartCoroutine(HitTime(.6f));
-                Collider2D[] hitEnemies3 = Physics2D.OverlapCircleAll(attackPoint3.position, attackRange3, enemyLayers);
-                foreach(Collider2D enemy in hitEnemies3)
-                {
-                    enemy.GetComponent<Enemy>().TakeDamage(30);
-                    Debug.Log("Attack3HIT");
+                //Collider2D[] hitEnemies3 = Physics2D.OverlapCircleAll(attackPoint3.position, attackRange3, enemyLayers);
+                //foreach(Collider2D enemy in hitEnemies3)
+                //{
+                   // enemy.GetComponent<Enemy>().TakeDamage(30);
+                  //  Debug.Log("Attack3HIT");
                     
-                }
+                //}
             }
         }
 
@@ -184,13 +205,13 @@ public class MovePlayer : MonoBehaviour
             HitBox.SetActive(true);
             HitBox3.SetActive(false);
             
-                Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
-                foreach(Collider2D enemy in hitEnemies)
-                {
+                //Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
+                //foreach(Collider2D enemy in hitEnemies)
+                //{
                     //Enemy is the script, not the object
-                    enemy.GetComponent<Enemy>().TakeDamage(attackDamage);
+                    //enemy.GetComponent<Enemy>().TakeDamage(attackDamage);
                     
-                }
+               // }
             
 
             

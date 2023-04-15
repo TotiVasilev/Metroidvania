@@ -8,22 +8,24 @@ public class Transiton2 : StateMachineBehaviour
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-         //MovePlayer.instance.attack3 = true;
+        
+        if(MovePlayer.instance.isAttacking)
+        {
+            
+             MovePlayer.instance.attack3 = true;
+            MovePlayer.instance.animator.Play("Attacking3");
+            //MovePlayer.instance.attack3 = true; //where to put???????????//NOT WORKING
+            //Debug.Log("Attacking3");
+            //Enemy.instanceE.TakeDamage(10);
+             MovePlayer.instance.DoDMG3();
+        }
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
        
-        if(MovePlayer.instance.isAttacking)
-        {
-             MovePlayer.instance.attack3 = true;
-            MovePlayer.instance.animator.Play("Attacking3");
-            //MovePlayer.instance.attack3 = true; //where to put???????????//NOT WORKING
-            //Debug.Log("Attacking3");
-            //Enemy.instanceE.TakeDamage(10);
-            
-        }
+        
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state

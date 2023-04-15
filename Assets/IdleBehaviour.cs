@@ -16,7 +16,7 @@ public class IdleBehaviour : StateMachineBehaviour
         if(MovePlayer.instance.isAttacking)
         {
             MovePlayer.instance.animator.Play("Attacking1");
-            
+            MovePlayer.instance.DoDMG12();
         }
     }
 
