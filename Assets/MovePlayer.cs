@@ -80,7 +80,7 @@ public class MovePlayer : MonoBehaviour
                     //enemy.GetComponent<Enemy>().TakeDamage(30);
                    Debug.Log("Attack3HIT");
                     StartCoroutine(HitTime(.6f));
-                    //enemy.GetComponent<BasicEnemyController>().SendMessage("Damage", attackDetails);
+                    enemy.GetComponent<BasicEnemyController>().SendMessage("Damage", attackDetails);
                 }
     }
 
@@ -121,7 +121,6 @@ public class MovePlayer : MonoBehaviour
     {
         yield return new WaitForSeconds(seconds);
         camerashaking.ShakeCamera(shakeIntensity, shakeTime);
-        enemy.GetComponent<BasicEnemyController>().SendMessage("Damage", attackDetails);
 
     }
     void Update()
