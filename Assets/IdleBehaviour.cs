@@ -7,7 +7,7 @@ public class IdleBehaviour : StateMachineBehaviour
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-       MovePlayer.instance.attack3 = false; 
+      // MovePlayer.instance.attack3 = false; 
     }
 
     //OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -18,6 +18,7 @@ public class IdleBehaviour : StateMachineBehaviour
             MovePlayer.instance.animator.Play("Attacking1");
             MovePlayer.instance.DoDMG12();
         }
+        
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state

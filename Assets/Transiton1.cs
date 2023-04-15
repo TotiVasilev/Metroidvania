@@ -7,11 +7,7 @@ public class Transiton1 : StateMachineBehaviour
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        if(MovePlayer.instance.isAttacking)
-        {
-            MovePlayer.instance.animator.Play("Attacking2");
-           MovePlayer.instance.DoDMG12();
-        }
+       
         
     }
 
@@ -23,7 +19,11 @@ public class Transiton1 : StateMachineBehaviour
        //     MovePlayer.instance.animator.Play("Attacking2");
         //   MovePlayer.instance.DoDMG12();
       //  }
-        
+         if(MovePlayer.instance.isAttacking)
+        {
+            MovePlayer.instance.animator.Play("Attacking2");
+           MovePlayer.instance.DoDMG12();
+        }
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state

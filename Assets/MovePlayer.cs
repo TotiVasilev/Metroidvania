@@ -74,7 +74,7 @@ public class MovePlayer : MonoBehaviour
                 {
                     enemy.GetComponent<Enemy>().TakeDamage(30);
                    Debug.Log("Attack3HIT");
-                    
+                    StartCoroutine(HitTime(.6f));
                 }
     }
 
@@ -122,7 +122,7 @@ public class MovePlayer : MonoBehaviour
                 
                HitBox.SetActive(false);
                HitBox3.SetActive(true);
-                StartCoroutine(HitTime(.6f));
+                //StartCoroutine(HitTime(.6f));
                 //Collider2D[] hitEnemies3 = Physics2D.OverlapCircleAll(attackPoint3.position, attackRange3, enemyLayers);
                 //foreach(Collider2D enemy in hitEnemies3)
                 //{
@@ -236,8 +236,14 @@ public class MovePlayer : MonoBehaviour
 
     private void FixedUpdate()// physics in Fixed update
     {
-        rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
-        
+        if(!isAttacking)
+        {
+            rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
+        }
+        else
+        {
+            rb.velocity = new Vector2(0,0);
+        }
     }
 
     private void Flip()
