@@ -11,6 +11,8 @@ public class MovePlayer : MonoBehaviour
 
 	public UnityEvent OnLandEvent;
 
+    
+
 	[System.Serializable]
 	public class BoolEvent : UnityEvent<bool> { }
     private float horizontal;// A,D || < > movement
@@ -31,6 +33,7 @@ public class MovePlayer : MonoBehaviour
     [SerializeField] private LayerMask groundLayer;//every collision with object in this layer = IsGrounded
     bool run; 
     public AudioSource foosteps;
+    private float[] attackDetails = new float[2];
   
     
     public bool isAttacking = false;
@@ -70,23 +73,30 @@ public class MovePlayer : MonoBehaviour
     public void DoDMG3()
     {
         Collider2D[] hitEnemies3 = Physics2D.OverlapCircleAll(attackPoint3.position, attackRange3, enemyLayers);
+        attackDetails[0] = 30;
+        attackDetails[1] = transform.position.x;
                 foreach(Collider2D enemy in hitEnemies3)
                 {
-                    enemy.GetComponent<Enemy>().TakeDamage(30);
+                    //enemy.GetComponent<Enemy>().TakeDamage(30);
                    Debug.Log("Attack3HIT");
                     StartCoroutine(HitTime(.6f));
+                    //enemy.GetComponent<BasicEnemyController>().SendMessage("Damage", attackDetails);
                 }
     }
 
     public void DoDMG12()
     {
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
-                foreach(Collider2D enemy in hitEnemies)
-                {
-                    //Enemy is the script, not the object
-                    enemy.GetComponent<Enemy>().TakeDamage(attackDamage);
+        attackDetails[0] = attackDamage;
+        attackDetails[1] = transform.position.x;
+
+        foreach(Collider2D enemy1 in hitEnemies)
+        {
+            
+            //Enemy is the script, not the object
+             enemy1.GetComponent<BasicEnemyController>().SendMessage("Damage", attackDetails);
                     
-                }
+        }
     }
     //Checking if we can jump
     private bool IsGrounded()
@@ -111,6 +121,7 @@ public class MovePlayer : MonoBehaviour
     {
         yield return new WaitForSeconds(seconds);
         camerashaking.ShakeCamera(shakeIntensity, shakeTime);
+        enemy.GetComponent<BasicEnemyController>().SendMessage("Damage", attackDetails);
 
     }
     void Update()

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Teleporter
   - Toilet
+  - Alive
   layers:
   - Default
   - TransparentFX
