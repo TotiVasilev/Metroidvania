@@ -72,6 +72,7 @@ public class MovePlayer : MonoBehaviour
     
     public void DoDMG3()
     {
+        StartCoroutine(HitTime(.6f));
         Collider2D[] hitEnemies3 = Physics2D.OverlapCircleAll(attackPoint3.position, attackRange3, enemyLayers);
         attackDetails[0] = 30;
         attackDetails[1] = transform.position.x;
@@ -79,7 +80,7 @@ public class MovePlayer : MonoBehaviour
                 {
                     //enemy.GetComponent<Enemy>().TakeDamage(30);
                    Debug.Log("Attack3HIT");
-                    StartCoroutine(HitTime(.6f));
+                    //StartCoroutine(HitTime(.6f));
                     enemy.GetComponent<BasicEnemyController>().SendMessage("Damage", attackDetails);
                 }
     }

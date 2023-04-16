@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class BasicEnemyController : MonoBehaviour
 {
+    public Sprite HitRenderer;
+    public Sprite NormalRenderer;
+    public SpriteRenderer rend;
     private enum State
     {
         Moving,
@@ -60,6 +63,9 @@ public class BasicEnemyController : MonoBehaviour
 
         currentHealth = maxHealth;
         facingDirection = 1;
+        rend = gameObject.GetComponent<SpriteRenderer>();
+        
+        
     }
 
     private void Update()
@@ -110,6 +116,7 @@ public class BasicEnemyController : MonoBehaviour
 
     private void EnterKnockbackState()
     {
+        rend.sprite = HitRenderer;
         knockbackStartTime = Time.time;
         movement.Set(knockbackSpeed.x * damageDirection, knockbackSpeed.y);
         aliveRb.velocity = movement;
@@ -126,6 +133,7 @@ public class BasicEnemyController : MonoBehaviour
 
     private void ExitKnockbackState()
     {
+        rend.sprite = NormalRenderer;
         //aliveAnim.SetBool("Knockback", false);
     }
 

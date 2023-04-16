@@ -7881,7 +7881,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.9459999, y: -1.1059998, z: -10}
+  m_LocalPosition: {x: 2.946, y: -1.1059998, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8145,7 +8145,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 691377704}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.9459999, y: -1.1059998, z: -10}
+  m_LocalPosition: {x: 2.946, y: -1.1059998, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -8313,6 +8313,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a1e6b12b85efff438ee074ed6b19e9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HitRenderer: {fileID: 21300000, guid: 981af1c96ce37a74bbd6052fcf05902f, type: 3}
+  NormalRenderer: {fileID: 7482667652216324306, guid: 49173b6bf487fef4baa10649402bea6e, type: 3}
+  rend: {fileID: 793293887}
   groundCheckDistance: 0.5
   wallCheckDistance: 0.1
   movementSpeed: 2
@@ -8323,7 +8326,7 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 8
-  knockbackSpeed: {x: 10, y: 5}
+  knockbackSpeed: {x: 5, y: 3}
   hitParticle: {fileID: 0}
   deathChunkParticle: {fileID: 0}
   deathBloodParticle: {fileID: 0}
@@ -33171,6 +33174,14 @@ PrefabInstance:
       propertyPath: m_SpriteTilingProperty.oldSize.y
       value: 2.5
       objectReference: {fileID: 0}
+    - target: {fileID: 1462241548096273847, guid: edbc0d6fa3a1104458f488e169ace637, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.633
+      objectReference: {fileID: 0}
+    - target: {fileID: 1462241548096273847, guid: edbc0d6fa3a1104458f488e169ace637, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.469
+      objectReference: {fileID: 0}
     - target: {fileID: 2892635689179388031, guid: edbc0d6fa3a1104458f488e169ace637, type: 3}
       propertyPath: m_Controller
       value: 
@@ -33211,6 +33222,10 @@ PrefabInstance:
       propertyPath: attackPoint
       value: 
       objectReference: {fileID: 1612814622}
+    - target: {fileID: 5403178635399505072, guid: edbc0d6fa3a1104458f488e169ace637, type: 3}
+      propertyPath: attackRange
+      value: 0.74
+      objectReference: {fileID: 0}
     - target: {fileID: 5403178635399505072, guid: edbc0d6fa3a1104458f488e169ace637, type: 3}
       propertyPath: attackDamage
       value: 10
