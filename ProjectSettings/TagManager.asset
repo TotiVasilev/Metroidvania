@@ -7,6 +7,7 @@ TagManager:
   - Teleporter
   - Toilet
   - Alive
+  - Enemy
   layers:
   - Default
   - TransparentFX
