@@ -8316,10 +8316,11 @@ MonoBehaviour:
   HitRenderer: {fileID: 21300000, guid: 981af1c96ce37a74bbd6052fcf05902f, type: 3}
   NormalRenderer: {fileID: 7482667652216324306, guid: 49173b6bf487fef4baa10649402bea6e, type: 3}
   rend: {fileID: 793293887}
+  playerMovement: {fileID: 1646693970}
   groundCheckDistance: 0.5
   wallCheckDistance: 0.1
-  movementSpeed: 2
-  maxHealth: 100
+  movementSpeed: 1.6
+  maxHealth: 80
   knockbackDuration: 0.1
   groundCheck: {fileID: 80353956}
   wallCheck: {fileID: 1782650989}
@@ -33207,8 +33208,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2019743689}
     - target: {fileID: 5403178635399505072, guid: edbc0d6fa3a1104458f488e169ace637, type: 3}
+      propertyPath: KBForce
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5403178635399505072, guid: edbc0d6fa3a1104458f488e169ace637, type: 3}
       propertyPath: hitWidth
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5403178635399505072, guid: edbc0d6fa3a1104458f488e169ace637, type: 3}
+      propertyPath: KBCounter
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5403178635399505072, guid: edbc0d6fa3a1104458f488e169ace637, type: 3}
       propertyPath: hitHeight
@@ -33216,6 +33225,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5403178635399505072, guid: edbc0d6fa3a1104458f488e169ace637, type: 3}
       propertyPath: shakeTime
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5403178635399505072, guid: edbc0d6fa3a1104458f488e169ace637, type: 3}
+      propertyPath: KBTotalTime
       value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 5403178635399505072, guid: edbc0d6fa3a1104458f488e169ace637, type: 3}

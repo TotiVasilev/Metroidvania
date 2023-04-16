@@ -7,6 +7,7 @@ public class BasicEnemyController : MonoBehaviour
     public Sprite HitRenderer;
     public Sprite NormalRenderer;
     public SpriteRenderer rend;
+    public MovePlayer playerMovement;
     private enum State
     {
         Moving,
@@ -68,6 +69,24 @@ public class BasicEnemyController : MonoBehaviour
         
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag == "Player")
+        {
+            playerMovement.KBCounter = playerMovement.KBTotalTime;
+            if(collision.transform.position.x <= transform.position.x)
+            {
+                playerMovement.KnockFromRight = true;
+            }
+
+            if(collision.transform.position.x >= transform.position.x)
+            {
+                playerMovement.KnockFromRight = false;
+            }
+        }
+
+        
+    }
     private void Update()
     {
         switch (currentState)

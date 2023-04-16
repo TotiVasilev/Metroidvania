@@ -35,7 +35,11 @@ public class MovePlayer : MonoBehaviour
     public AudioSource foosteps;
     private float[] attackDetails = new float[2];
   
-    
+    public float KBForce;
+    public float KBCounter;
+    public float KBTotalTime;
+    public bool KnockFromRight;
+
     public bool isAttacking = false;
     public static MovePlayer instance;
     public Transform attackPoint;
@@ -253,8 +257,29 @@ public class MovePlayer : MonoBehaviour
         }
         else
         {
+            
             rb.velocity = new Vector2(0,0);
         }
+        if(KBCounter <= 0)
+        {
+            if(!isAttacking)
+            {
+                rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
+            }
+        }
+        else
+        {
+            if(KnockFromRight == true)
+            {
+                rb.velocity = new Vector2(-KBForce, KBForce);
+            }
+            if(KnockFromRight == false)
+            {
+                rb.velocity = new Vector2(KBForce, KBForce);
+            }
+            KBCounter -= Time.deltaTime;
+        }
+        
     }
 
     private void Flip()
