@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class BasicEnemyController : MonoBehaviour
 {
+    
+    
     public Sprite HitRenderer;
     public Sprite NormalRenderer;
     public SpriteRenderer rend;
@@ -161,6 +163,7 @@ public class BasicEnemyController : MonoBehaviour
     private void EnterDeadState()
     {
         Destroy(gameObject);
+        
     }
 
     private void UpdateDeadState()
@@ -170,7 +173,7 @@ public class BasicEnemyController : MonoBehaviour
 
     private void ExitDeadState()
     {
-
+        
     }
 
     //--OTHER FUNCTIONS--------------------------------------------------------------------------------
