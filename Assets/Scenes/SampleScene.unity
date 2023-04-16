@@ -8296,6 +8296,50 @@ Transform:
   m_Father: {fileID: 1473031136}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1043619604
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1043619605}
+  - component: {fileID: 1043619606}
+  m_Layer: 6
+  m_Name: RespawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1043619605
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1043619604}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1043619606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1043619604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c6a93f55674f0e4cba6c7948d8dde7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1079370493
 GameObject:
   m_ObjectHideFlags: 0
@@ -32373,6 +32417,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1549391315 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 48827205361829392, guid: dfc7402c2e844f34b8598f633913789e, type: 3}
+  m_PrefabInstance: {fileID: 48827204871598636}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1612814621 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1748705207818187132, guid: edbc0d6fa3a1104458f488e169ace637, type: 3}
@@ -32931,6 +32980,14 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Untagged
       objectReference: {fileID: 0}
+    - target: {fileID: 48827205361829485, guid: dfc7402c2e844f34b8598f633913789e, type: 3}
+      propertyPath: prefab
+      value: 
+      objectReference: {fileID: 1549391315}
+    - target: {fileID: 48827205361829485, guid: dfc7402c2e844f34b8598f633913789e, type: 3}
+      propertyPath: RespawnPoint
+      value: 
+      objectReference: {fileID: 1043619605}
     - target: {fileID: 48827205361829485, guid: dfc7402c2e844f34b8598f633913789e, type: 3}
       propertyPath: playerMovement
       value: 
