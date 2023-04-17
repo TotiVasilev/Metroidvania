@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 695262b9b1c970541b44b970e9d54033
+guid: 332d4ecb2e5d419498ae4ccf9a0caeca
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 31
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -105,13 +105,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Steni_0
+      name: StartRun_0
       rect:
         serializedVersion: 2
-        x: 16
-        y: 32
-        width: 16
-        height: 16
+        x: 0
+        y: 0
+        width: 112
+        height: 80
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -119,20 +119,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9a8d958e9af70e64792d18b31504e773
-      internalID: -1465588850
+      spriteID: 1132949a22253934ea532fcc1d69df65
+      internalID: 1577005288
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Steni_1
+      name: StartRun_1
       rect:
         serializedVersion: 2
-        x: 48
-        y: 32
-        width: 16
-        height: 16
+        x: 112
+        y: 0
+        width: 112
+        height: 80
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,8 +140,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7077543dede22b54c853838d5d6f20fa
-      internalID: -1337558852
+      spriteID: 51ea135eec04d6040b598fc93ab75d67
+      internalID: -555307100
       vertices: []
       indices: 
       edges: []
@@ -157,8 +157,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Steni_0: -1465588850
-      Steni_1: -1337558852
+      StartRun_1: -555307100
+      StartRun_0: 1577005288
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
