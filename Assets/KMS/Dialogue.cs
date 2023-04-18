@@ -57,6 +57,21 @@ public class Dialogue : MonoBehaviour
         }
     }
 
+     private void OnTriggerExit2D(Collider2D other)
+    {
+        var player = other.GetComponent<CheckpointController>();
+        if(player!=null)
+        {
+             Dialgoue.SetActive(false);
+            Destroy(gameObject);
+            
+        
+            
+
+
+        }
+    }
+
     IEnumerator Cooldown()
     {
         yield return new WaitForSeconds(2f);
