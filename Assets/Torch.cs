@@ -27,8 +27,9 @@ public class Torch : MonoBehaviour
         for (; ; ) //this is while(true)
         {
             float randomIntensity = Random.Range(1f, 1.4f);
+            //float randomIntensityMain = Random.Range(1)
             flickerLightComponent.intensity = randomIntensity;
-
+            mainLightComponent.intensity =  randomIntensity;
 
             float randomTime = Random.Range(0f, .5f);
             yield return new WaitForSeconds(randomTime);
