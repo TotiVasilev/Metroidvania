@@ -5,9 +5,10 @@ using UnityEngine.UI;
 
 public class LevelWIndow : MonoBehaviour
 {
-    private Text levelText;
-    private Image experienceBarImage;
+    public Text levelText;
+    public Image experienceBarImage;
     private LevelSystem levelSystem;
+
 
     
     private void Awake()

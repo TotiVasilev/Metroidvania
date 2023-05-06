@@ -32272,7 +32272,7 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1525703018}
-  m_CullTransparentMesh: 1
+  m_CullTransparentMesh: 0
 --- !u!1001 &1599251940
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -33418,6 +33418,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 945625ec178e3e249bc886ffc4141f83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelText: {fileID: 1695019652}
+  experienceBarImage: {fileID: 1525703021}
 --- !u!1 &1848027966
 GameObject:
   m_ObjectHideFlags: 0
