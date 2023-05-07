@@ -8,6 +8,7 @@ public class LevelWIndow : MonoBehaviour
     [SerializeField] private Text levelText;
     [SerializeField] private Image experienceBarImage;
     private LevelSystem levelSystem;
+    private LevelSystemAnimated levelSystemAnimated;
     private void Awake()
     {
         levelText = transform.Find("levelText").GetComponent<Text>();
@@ -28,24 +29,24 @@ public class LevelWIndow : MonoBehaviour
         levelText.text = "LEVEL\n" + (levelNumber + 1);
     }
 
-    public void SetLevelSystem(LevelSystem levelSystem)
+    public void SetLevelSystemAnimated(LevelSystemAnimated levelSystemAnimated)
     {
-        this.levelSystem = levelSystem;
+        this.levelSystemAnimated = levelSystemAnimated;
 
-        SetLevelNumber(levelSystem.GetLevelNumber());
-        SetExperienceBarSize(levelSystem.GetExperienceNormalized());
+        SetLevelNumber(levelSystemAnimated.GetLevelNumber());
+        SetExperienceBarSize(levelSystemAnimated.GetExperienceNormalized());
 
-        levelSystem.OnExperienceChanged += LevelSystem_OnExperienceChanged;
-        levelSystem.OnLevelChanged += LevelSystem_OnLevelChanged;
+        levelSystemAnimated.OnExperienceChanged += LevelSystemAnimated_OnExperienceChanged;
+        levelSystemAnimated.OnLevelChanged += LevelSystemAnimated_OnLevelChanged;
     }
 
-    private void LevelSystem_OnLevelChanged(object sender, System.EventArgs e)
+    private void LevelSystemAnimated_OnLevelChanged(object sender, System.EventArgs e)
     {
-        SetLevelNumber(levelSystem.GetLevelNumber());
+        SetLevelNumber(levelSystemAnimated.GetLevelNumber());
     }
 
-    private void LevelSystem_OnExperienceChanged(object sender, System.EventArgs e)
+    private void LevelSystemAnimated_OnExperienceChanged(object sender, System.EventArgs e)
     {
-        SetExperienceBarSize(levelSystem.GetExperienceNormalized());
+        SetExperienceBarSize(levelSystemAnimated.GetExperienceNormalized());
     }
 }

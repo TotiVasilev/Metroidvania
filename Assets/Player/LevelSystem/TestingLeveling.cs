@@ -11,5 +11,7 @@ public class TestingLeveling : MonoBehaviour
         LevelSystem levelSystem = new LevelSystem();
         levelWIndow.SetLevelSystem(levelSystem);
         player.SetLevelSystem(levelSystem);
+
+        LevelSystemAnimated levelSystemAnimated = new LevelSystemAnimated(levelSystem);
     }
 }
