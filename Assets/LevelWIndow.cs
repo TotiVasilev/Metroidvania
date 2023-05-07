@@ -5,19 +5,15 @@ using UnityEngine.UI;
 
 public class LevelWIndow : MonoBehaviour
 {
-    public Text levelText;
-    public Image experienceBarImage;
-    private LevelSystem levelSystem;
-
-
-    
+    private Text levelText;
+    private Image experienceBarImage;
     private void Awake()
     {
         levelText = transform.Find("levelText").GetComponent<Text>();
         experienceBarImage = transform.Find("experienceBar").Find("bar").GetComponent<Image>();
 
-      //SetExperienceBarSize(.5f);
-      //SetLevelNumber(7);
+        SetExperienceBarSize(.5f);
+        SetLevelNumber(7);
     }
 
     private void SetExperienceBarSize(float experienceNormalized)
@@ -28,13 +24,5 @@ public class LevelWIndow : MonoBehaviour
     private void SetLevelNumber(int levelNumber)
     {
         levelText.text = "LEVEL\n" + (levelNumber + 1);
-    }
-
-    public void SetLevelSystem(LevelSystem levelSystem)
-    {
-        this.levelSystem = levelSystem;
-
-        SetLevelNumber(levelSystem.GetLevelNumber());
-        SetExperienceBarSize(levelSystem.GetExperienceNormalized());
     }
 }

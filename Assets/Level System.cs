@@ -30,9 +30,4 @@ public class LevelSystem
     {
         return level;
     }
-
-    public float GetExperienceNormalized()
-    {
-        return (float)experience / experienceToNextLevel;
-    }
 }
