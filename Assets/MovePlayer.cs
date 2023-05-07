@@ -11,7 +11,7 @@ public class MovePlayer : MonoBehaviour
 
 	public UnityEvent OnLandEvent;
 
-    
+    private LevelSystem levelSystem;
 
 	[System.Serializable]
 	public class BoolEvent : UnityEvent<bool> { }
@@ -74,6 +74,19 @@ public class MovePlayer : MonoBehaviour
             
     }
     
+    public void SetLevelSystem(LevelSystem levelSystem)
+    {
+        this.levelSystem = levelSystem;
+
+        levelSystem.OnLevelChanged += LevelSystem_OnLevelChanged;
+    }
+
+    //ADD THE VOIDS YOU WANT TO HAPPEN AFTER LEVELING UP!!!
+    private void LevelSystem_OnLevelChanged(object sender, EventArgs e)
+    {
+        
+    }
+
     public void DoDMG3()
     {
         StartCoroutine(HitTime(.6f));
