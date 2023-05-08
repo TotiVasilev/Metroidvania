@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using CodeMonkey.Utils;
 
 public class LevelWIndow : MonoBehaviour
 {
@@ -14,7 +15,9 @@ public class LevelWIndow : MonoBehaviour
         levelText = transform.Find("levelText").GetComponent<Text>();
         experienceBarImage = transform.Find("experienceBar").Find("bar").GetComponent<Image>();
 
-        transform.Find("Button").GetComponent<Button>().onClick.AddListener(() => levelSystem.AddExperience(20));
+        //transform.Find("Button").GetComponent<Button>().onClick.AddListener(() => levelSystem.AddExperience(20));
+        transform.Find("Button").GetComponent<Button_UI>().ClickFunc = () => levelSystem.AddExperience(20);
+        transform.Find("Button1").GetComponent<Button_UI>().ClickFunc = () => levelSystem.AddExperience(500);
 
 
     }
@@ -29,6 +32,10 @@ public class LevelWIndow : MonoBehaviour
         levelText.text = "LEVEL\n" + (levelNumber + 1);
     }
 
+    public void SetLevelSystem(LevelSystem levelSystem)
+    {
+        this.levelSystem = levelSystem;
+    }
     public void SetLevelSystemAnimated(LevelSystemAnimated levelSystemAnimated)
     {
         this.levelSystemAnimated = levelSystemAnimated;

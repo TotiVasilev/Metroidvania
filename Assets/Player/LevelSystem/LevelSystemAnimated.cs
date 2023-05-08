@@ -1,12 +1,17 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using CodeMonkey.Utils;
 
+
 public class LevelSystemAnimated
 {
+    public event EventHandler OnExperienceChanged;
+    public event EventHandler OnLevelChanged;
+
     private LevelSystem levelSystem;
-    private bool isAnimating;
+    public bool isAnimating;
 
     private int level;
     private int experience;
@@ -73,7 +78,20 @@ public class LevelSystemAnimated
         {
             level++;
             experience = 0;
+            if (OnLevelChanged != null) OnLevelChanged(this, EventArgs.Empty);
         }
-    }
+        if (OnExperienceChanged != null) OnExperienceChanged(this, EventArgs.Empty);
     
+    }
+
+    public int GetLevelNumber()
+    {
+        return level;
+    }
+
+    public float GetExperienceNormalized()
+    {
+        return (float)experience / experienceToNextLevel;
+    }
+
 }
