@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -70,7 +70,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -7959,13 +7959,13 @@ TextureImporter:
       level tiles_118: -1985697395
       level tiles_73: 1463221462
       level tiles_6: -690798824
-      level tiles_137: -1459305349
       level tiles_237: -1579197423
-      level tiles_169: 874114199
+      level tiles_245: -574885599
+      level tiles_218: -1219000505
       level tiles_179: 589685171
       level tiles_240: -1797278845
-      level tiles_218: -1219000505
-      level tiles_245: -574885599
+      level tiles_169: 874114199
+      level tiles_137: -1459305349
       level tiles_311: 491148232
       level tiles_86: 2145967601
       level tiles_114: 1111705564
@@ -8199,12 +8199,12 @@ TextureImporter:
       level tiles_290: 334297791
       level tiles_217: -1187241457
       level tiles_35: 1045452855
-      level tiles_198: 1060503335
       level tiles_269: 771499092
       level tiles_91: 134809619
-      level tiles_103: -1947271389
       level tiles_256: 412609190
+      level tiles_198: 1060503335
       level tiles_267: -1445426494
+      level tiles_103: -1947271389
       level tiles_148: 1624705445
       level tiles_214: 638139251
       level tiles_69: 1120637460
@@ -8212,22 +8212,22 @@ TextureImporter:
       level tiles_60: -529615658
       level tiles_99: 345444321
       level tiles_49: -300248097
-      level tiles_62: 1099641847
       level tiles_326: -2055680611
+      level tiles_62: 1099641847
       level tiles_126: 285072891
       level tiles_223: 1898946294
       level tiles_347: -467481733
       level tiles_216: -794453686
       level tiles_55: 239651725
-      level tiles_344: 2028657957
       level tiles_363: 1077443785
+      level tiles_344: 2028657957
       level tiles_337: 1892991547
       level tiles_185: 1353304199
       level tiles_322: -1788676366
       level tiles_274: 1468422299
       level tiles_167: -1334803585
-      level tiles_227: 1676783005
       level tiles_361: -1610198212
+      level tiles_227: 1676783005
       level tiles_181: 1607781494
       level tiles_18: -830096573
       level tiles_303: 869965148
