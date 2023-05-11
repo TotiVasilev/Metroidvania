@@ -9,6 +9,7 @@ public class Lift : MonoBehaviour
 
     public bool canUp = false;
     public bool isMoving = false;
+    public bool isMovingDown = false;
     public Vector2 goToPosition;
     public Vector2 startPosition;
 
@@ -33,7 +34,18 @@ public class Lift : MonoBehaviour
             this.GetComponent<SpriteRenderer>().sprite = isActivated;
             transform.position = Vector2.MoveTowards(transform.position, goToPosition, 0.005f);
         }
-        
+
+        if (Input.GetKeyDown(KeyCode.K) && isMoving==true)
+        {
+            isMovingDown = true;
+
+        }
+
+        if(isMovingDown)
+        {
+            transform.position = Vector2.MoveTowards( goToPosition, startPosition, 0.005f);
+            
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -57,5 +69,7 @@ public class Lift : MonoBehaviour
         }
 
     }
+
+
 
 }

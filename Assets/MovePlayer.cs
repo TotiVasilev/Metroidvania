@@ -225,7 +225,7 @@ public class MovePlayer : MonoBehaviour
     {
         
 
-        if (Input.GetKeyDown(KeyCode.R) && !isAttacking)
+        if (Input.GetMouseButtonDown(0) && !isAttacking)
         {
             isAttacking = true;
            
