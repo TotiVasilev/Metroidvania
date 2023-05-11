@@ -32,4 +32,6 @@ public class cameraShake : MonoBehaviour
     {
         perlinNoise.m_AmplitudeGain = 0f;
     }
+
+
 }
