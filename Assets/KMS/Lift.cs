@@ -12,6 +12,7 @@ public class Lift : MonoBehaviour
     public bool isMovingDown = false;
     public Vector2 goToPosition;
     public Vector2 startPosition;
+    public float LiftSpeed;
 
 
     // Start is called before the first frame update
@@ -24,27 +25,25 @@ public class Lift : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.R) && canUp == true)
+        if(Input.GetKeyDown(KeyCode.R) && canUp == true )
         {
+            isMovingDown = false;
             isMoving = true;
         }
 
-        if(isMoving == true)
+        
+
+        
+    }
+
+    private void FixedUpdate()
+    {
+        if (isMoving == true)
         {
+
             this.GetComponent<SpriteRenderer>().sprite = isActivated;
-            transform.position = Vector2.MoveTowards(transform.position, goToPosition, 0.005f);
-        }
-
-        if (Input.GetKeyDown(KeyCode.K) && isMoving==true)
-        {
-            isMovingDown = true;
-
-        }
-
-        if(isMovingDown)
-        {
-            transform.position = Vector2.MoveTowards( goToPosition, startPosition, 0.005f);
-            
+            transform.position = Vector2.MoveTowards(transform.position, goToPosition, LiftSpeed);
+            StartCoroutine(LiftDown(5));
         }
     }
 
@@ -70,6 +69,25 @@ public class Lift : MonoBehaviour
 
     }
 
+    IEnumerator LiftDown( float goBackAfter)
+    {
+        yield return new WaitForSeconds(goBackAfter);
+        LiftReturn();
+    }
+
+    private void LiftReturn()
+    {
+        isMovingDown = true;
+
+        if (isMovingDown)
+        {
+            this.GetComponent<SpriteRenderer>().sprite = notActivated;
+            isMoving = false;
+
+            transform.position = Vector2.MoveTowards(transform.position, startPosition, LiftSpeed);
+
+        }
+    }
 
 
 }
