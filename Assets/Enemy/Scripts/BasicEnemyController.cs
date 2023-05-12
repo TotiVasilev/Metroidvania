@@ -54,13 +54,13 @@ public class BasicEnemyController : MonoBehaviour
         groundDetected,
         wallDetected;
 
-    private GameObject alive;
+    [SerializeField] private GameObject alive;
     private Rigidbody2D aliveRb;
     private Animator aliveAnim;
 
     private void Start()
     {
-        alive = GameObject.Find("Alive");
+        alive = this.gameObject;
         aliveRb = alive.GetComponent<Rigidbody2D>();
         aliveAnim = alive.GetComponent<Animator>();
 
