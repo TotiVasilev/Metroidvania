@@ -79,6 +79,7 @@ public class MovePlayer : MonoBehaviour
         this.levelSystem = levelSystem;
 
         levelSystem.OnLevelChanged += LevelSystem_OnLevelChanged;
+        
     }
 
     //ADD THE VOIDS YOU WANT TO HAPPEN AFTER LEVELING UP!!!
@@ -143,7 +144,11 @@ public class MovePlayer : MonoBehaviour
     }
     void Update()
     {
-        if(isAttacking)
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            levelSystem.AddExperience(50);
+        }
+        if (isAttacking)
         {
             if (attack3)
             {

@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class BasicEnemyController : MonoBehaviour
 {
     
+    private LevelSystem levelSystem;
     
     public Sprite HitRenderer;
     public Sprite NormalRenderer;
@@ -69,6 +71,12 @@ public class BasicEnemyController : MonoBehaviour
         rend = gameObject.GetComponent<SpriteRenderer>();
         
         
+    }
+
+    public void SetLevelSystem(LevelSystem levelSystem)
+    {
+        this.levelSystem = levelSystem;
+
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -142,6 +150,8 @@ public class BasicEnemyController : MonoBehaviour
         movement.Set(knockbackSpeed.x * damageDirection, knockbackSpeed.y);
         aliveRb.velocity = movement;
         //aliveAnim.SetBool("Knockback", true);
+       
+        
     }
 
     private void UpdateKnockbackState()
@@ -163,7 +173,7 @@ public class BasicEnemyController : MonoBehaviour
     private void EnterDeadState()
     {
         Destroy(gameObject);
-        
+        levelSystem.AddExperience(120);
     }
 
     private void UpdateDeadState()
