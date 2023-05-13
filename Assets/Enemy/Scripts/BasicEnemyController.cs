@@ -25,15 +25,19 @@ public class BasicEnemyController : MonoBehaviour
     private float
         groundCheckDistance,
         wallCheckDistance,
+        playerCheckDistance,
         movementSpeed,
         maxHealth,
         knockbackDuration;
     [SerializeField]
     private Transform
         groundCheck,
-        wallCheck;
+        wallCheck,
+        playerCheck;
     [SerializeField]
     private LayerMask whatIsGround;
+    [SerializeField]
+    private LayerMask whatIsPlayer;
     [SerializeField]
     private Vector2 knockbackSpeed;
     [SerializeField]
@@ -54,7 +58,8 @@ public class BasicEnemyController : MonoBehaviour
 
     private bool
         groundDetected,
-        wallDetected;
+        wallDetected,
+        playerDetected;
 
     [SerializeField] private GameObject alive;
     private Rigidbody2D aliveRb;
@@ -124,8 +129,14 @@ public class BasicEnemyController : MonoBehaviour
     {
         groundDetected = Physics2D.Raycast(groundCheck.position, Vector2.down, groundCheckDistance, whatIsGround);
         wallDetected = Physics2D.Raycast(wallCheck.position, transform.right, wallCheckDistance, whatIsGround);
+        playerDetected = Physics2D.Raycast(playerCheck.position, transform.right, playerCheckDistance, whatIsPlayer);
 
-        if(!groundDetected || wallDetected)
+        if(playerDetected)
+        {
+            Debug.Log("Player Detected");
+        }
+
+        if (!groundDetected || wallDetected)
         {
             Flip();
         }
@@ -257,5 +268,7 @@ public class BasicEnemyController : MonoBehaviour
     {
         Gizmos.DrawLine(groundCheck.position, new Vector2(groundCheck.position.x, groundCheck.position.y - groundCheckDistance));
         Gizmos.DrawLine(wallCheck.position, new Vector2(wallCheck.position.x + wallCheckDistance, wallCheck.position.y));
+        Gizmos.DrawLine(playerCheck.position, new Vector2(playerCheck.position.x + playerCheckDistance, playerCheck.position.y));
+
     }
 }
