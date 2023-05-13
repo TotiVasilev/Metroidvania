@@ -135,6 +135,10 @@ public class BasicEnemyController : MonoBehaviour
         {
             Debug.Log("Player Detected");
         }
+        else
+        {
+            Debug.Log("Player NOT");
+        }
 
         if (!groundDetected || wallDetected)
         {
