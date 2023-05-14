@@ -16,6 +16,7 @@ public class BasicEnemyController : MonoBehaviour
     {
         Moving,
         Knockback,
+        Attack,
         Dead
     }
 
@@ -65,6 +66,8 @@ public class BasicEnemyController : MonoBehaviour
     private Rigidbody2D aliveRb;
     private Animator aliveAnim;
 
+    public bool playerInRange;
+
     private void Start()
     {
         alive = this.gameObject;
@@ -104,6 +107,7 @@ public class BasicEnemyController : MonoBehaviour
     }
     private void Update()
     {
+        playerDetected = Physics2D.Raycast(playerCheck.position, transform.right, playerCheckDistance, whatIsPlayer);
         switch (currentState)
         {
             case State.Moving:
@@ -111,6 +115,9 @@ public class BasicEnemyController : MonoBehaviour
                 break;
             case State.Knockback:
                 UpdateKnockbackState();
+                break;
+            case State.Attack:
+                UpdateAttackState();
                 break;
             case State.Dead:
                 UpdateDeadState();
@@ -122,22 +129,19 @@ public class BasicEnemyController : MonoBehaviour
 
     private void EnterMovingState()
     {
-
+        
     }
 
     private void UpdateMovingState()
     {
         groundDetected = Physics2D.Raycast(groundCheck.position, Vector2.down, groundCheckDistance, whatIsGround);
         wallDetected = Physics2D.Raycast(wallCheck.position, transform.right, wallCheckDistance, whatIsGround);
-        playerDetected = Physics2D.Raycast(playerCheck.position, transform.right, playerCheckDistance, whatIsPlayer);
+        
 
-        if(playerDetected)
+        if (playerDetected)
         {
-            Debug.Log("Player Detected");
-        }
-        else
-        {
-            Debug.Log("Player NOT");
+
+            SwitchState(State.Attack);
         }
 
         if (!groundDetected || wallDetected)
@@ -165,8 +169,10 @@ public class BasicEnemyController : MonoBehaviour
         movement.Set(knockbackSpeed.x * damageDirection, knockbackSpeed.y);
         aliveRb.velocity = movement;
         //aliveAnim.SetBool("Knockback", true);
+
        
-        
+      
+
     }
 
     private void UpdateKnockbackState()
@@ -175,6 +181,8 @@ public class BasicEnemyController : MonoBehaviour
         {
             SwitchState(State.Moving);
         }
+
+        
     }
 
     private void ExitKnockbackState()
@@ -199,6 +207,26 @@ public class BasicEnemyController : MonoBehaviour
     private void ExitDeadState()
     {
         
+    }
+
+    // ATTACK STATE
+    private void EnterAttackState()
+    {
+        Debug.Log("EnterAttackState");
+    }
+
+    private void UpdateAttackState()
+    {
+        if (!playerDetected)
+        {
+            Debug.Log("PlayerNotInRange");
+            SwitchState(State.Moving);
+        }
+    }
+
+    private void ExitAttackState()
+    {
+        Debug.Log("LeavingAttackState");
     }
 
     //--OTHER FUNCTIONS--------------------------------------------------------------------------------
@@ -244,9 +272,13 @@ public class BasicEnemyController : MonoBehaviour
             case State.Moving:
                 ExitMovingState();
                 break;
+                case State.Attack:
+                ExitAttackState();
+                break;
             case State.Knockback:
                 ExitKnockbackState();
                 break;
+            
             case State.Dead:
                 ExitDeadState();
                 break;
@@ -257,9 +289,13 @@ public class BasicEnemyController : MonoBehaviour
             case State.Moving:
                 EnterMovingState();
                 break;
+                case State.Attack:
+                EnterAttackState();
+                break;
             case State.Knockback:
                 EnterKnockbackState();
                 break;
+            
             case State.Dead:
                 EnterDeadState();
                 break;
@@ -274,5 +310,18 @@ public class BasicEnemyController : MonoBehaviour
         Gizmos.DrawLine(wallCheck.position, new Vector2(wallCheck.position.x + wallCheckDistance, wallCheck.position.y));
         Gizmos.DrawLine(playerCheck.position, new Vector2(playerCheck.position.x + playerCheckDistance, playerCheck.position.y));
 
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.CompareTag("Enemy"))
+        {
+            playerInRange = true;
+        }
+    }
+
+    private void OnTriggerExit2D()
+    {
+        playerInRange = false;
     }
 }
