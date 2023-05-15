@@ -91,16 +91,7 @@ public class MovePlayer : MonoBehaviour
     public void DoDMG3()
     {
         StartCoroutine(HitTime(.6f));
-        Collider2D[] hitEnemies3 = Physics2D.OverlapCircleAll(attackPoint3.position, attackRange3, enemyLayers);
-        attackDetails[0] = 30;
-        attackDetails[1] = transform.position.x;
-                foreach(Collider2D enemy in hitEnemies3)
-                {
-                    //enemy.GetComponent<Enemy>().TakeDamage(30);
-                   Debug.Log("Attack3HIT");
-                    //StartCoroutine(HitTime(.6f));
-                    enemy.GetComponent<BasicEnemyController>().SendMessage("Damage", attackDetails);
-                }
+       
     }
 
     public void DoDMG12()
@@ -140,14 +131,21 @@ public class MovePlayer : MonoBehaviour
     {
         yield return new WaitForSeconds(seconds);
         camerashaking.ShakeCamera(shakeIntensity, shakeTime);
+        Collider2D[] hitEnemies3 = Physics2D.OverlapCircleAll(attackPoint3.position, attackRange3, enemyLayers);
+        attackDetails[0] = 30;
+        attackDetails[1] = transform.position.x;
+        foreach (Collider2D enemy in hitEnemies3)
+        {
+            //enemy.GetComponent<Enemy>().TakeDamage(30);
+            Debug.Log("Attack3HIT");
+            //StartCoroutine(HitTime(.6f));
+            enemy.GetComponent<BasicEnemyController>().SendMessage("Damage", attackDetails);
+        }
 
     }
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            levelSystem.AddExperience(50);
-        }
+        
         if (isAttacking)
         {
             if (attack3)
@@ -313,6 +311,11 @@ public class MovePlayer : MonoBehaviour
         }
     }
 
+    IEnumerator Do3Damege(float goBackAfter)
+    {
+        yield return new WaitForSeconds(goBackAfter);
+       
+    }
 
 
 
