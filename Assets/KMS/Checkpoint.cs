@@ -1,13 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class Checkpoint : MonoBehaviour
 {
     public Sprite notActivated;
     public Sprite isActivated;
+    [SerializeField] private GameObject Lights;
 
     public GameObject[] checkpoints;
+    
     void Start()
     {
         
@@ -29,6 +32,7 @@ public class Checkpoint : MonoBehaviour
         }
 
             this.GetComponent<SpriteRenderer>().sprite = isActivated;
+            Lights.SetActive(true);
         }
     }
     
