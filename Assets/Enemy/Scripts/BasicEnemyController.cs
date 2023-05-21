@@ -195,8 +195,12 @@ public class BasicEnemyController : MonoBehaviour
 
     private void EnterDeadState()
     {
-        Destroy(gameObject);
+        aliveAnim.SetTrigger("Dead");
         levelSystem.AddExperience(120);
+        Destroy(GetComponent<BoxCollider2D>());
+        Destroy(GetComponent<BasicEnemyController>());
+        Destroy(GetComponent<Rigidbody2D>());
+
     }
 
     private void UpdateDeadState()
