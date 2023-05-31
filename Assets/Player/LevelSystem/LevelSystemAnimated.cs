@@ -68,7 +68,7 @@ public class LevelSystemAnimated
                 }
             }
         }
-        Debug.Log(level + " " + experience);
+        
     }
 
     private void AddExperience()

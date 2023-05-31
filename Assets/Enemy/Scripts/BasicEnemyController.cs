@@ -178,7 +178,7 @@ public class BasicEnemyController : MonoBehaviour
         aliveRb.velocity = movement;
         aliveAnim.SetBool("Move", false);
 
-       
+        aliveAnim.SetTrigger("GetHit");
       
 
     }
@@ -238,7 +238,7 @@ public class BasicEnemyController : MonoBehaviour
             SwitchState(State.Moving);
         }
 
-        
+        Attack();
         
     }
 
@@ -252,6 +252,13 @@ public class BasicEnemyController : MonoBehaviour
         Vector2 direction = playerTransform.position - transform.position;
         direction.Normalize();
         aliveRb.velocity = direction * attackingSpeed;
+        if(Input.GetMouseButtonDown(0))
+        {
+            movementSpeed = 0f;
+            Debug.Log("Parry");
+            SwitchState(State.Knockback);
+            
+        }
     }
 
     //--OTHER FUNCTIONS--------------------------------------------------------------------------------
