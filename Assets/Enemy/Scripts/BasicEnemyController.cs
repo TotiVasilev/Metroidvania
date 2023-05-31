@@ -7,7 +7,7 @@ public class BasicEnemyController : MonoBehaviour
 {
     
     private LevelSystem levelSystem;
-    
+    private bool canParry;
     public Sprite HitRenderer;
     public Sprite NormalRenderer;
     public SpriteRenderer rend;
@@ -178,7 +178,7 @@ public class BasicEnemyController : MonoBehaviour
         aliveRb.velocity = movement;
         aliveAnim.SetBool("Move", false);
 
-       
+        aliveAnim.SetTrigger("GetHit");
       
 
     }
@@ -238,7 +238,10 @@ public class BasicEnemyController : MonoBehaviour
             SwitchState(State.Moving);
         }
 
-        
+        if(Input.GetMouseButtonDown(0))
+        {
+            canParry = true;
+        }
         
     }
 
@@ -252,6 +255,13 @@ public class BasicEnemyController : MonoBehaviour
         Vector2 direction = playerTransform.position - transform.position;
         direction.Normalize();
         aliveRb.velocity = direction * attackingSpeed;
+        if(canParry)
+        {
+            movementSpeed = 0f;
+            Debug.Log("Parry");
+            aliveAnim.SetBool("Move", false);
+
+        }
     }
 
     //--OTHER FUNCTIONS--------------------------------------------------------------------------------
