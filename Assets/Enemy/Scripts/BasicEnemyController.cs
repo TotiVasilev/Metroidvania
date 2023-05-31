@@ -29,6 +29,7 @@ public class BasicEnemyController : MonoBehaviour
         playerCheckDistance,
         movementSpeed,
         maxHealth,
+        attackingSpeed,
         knockbackDuration;
     [SerializeField]
     private Transform
@@ -65,6 +66,7 @@ public class BasicEnemyController : MonoBehaviour
     [SerializeField] private GameObject alive;
     private Rigidbody2D aliveRb;
     private Animator aliveAnim;
+    [SerializeField] private Transform playerTransform;
 
     public bool playerInRange;
 
@@ -129,7 +131,8 @@ public class BasicEnemyController : MonoBehaviour
 
     private void EnterMovingState()
     {
-        
+        aliveAnim.SetBool("Move", true);
+        movementSpeed = 1f;
     }
 
     private void UpdateMovingState()
@@ -164,11 +167,16 @@ public class BasicEnemyController : MonoBehaviour
 
     private void EnterKnockbackState()
     {
+        if(!playerDetected)
+        {
+            Flip();
+        }
+        movementSpeed = 0f;
         rend.sprite = HitRenderer;
         knockbackStartTime = Time.time;
         movement.Set(knockbackSpeed.x * damageDirection, knockbackSpeed.y);
         aliveRb.velocity = movement;
-        //aliveAnim.SetBool("Knockback", true);
+        aliveAnim.SetBool("Move", false);
 
        
       
@@ -188,7 +196,8 @@ public class BasicEnemyController : MonoBehaviour
     private void ExitKnockbackState()
     {
         rend.sprite = NormalRenderer;
-        //aliveAnim.SetBool("Knockback", false);
+        aliveAnim.SetBool("Move", true);
+        movementSpeed = 1;
     }
 
     //--DEAD STATE---------------------------------------------------------------------------------------
@@ -216,7 +225,9 @@ public class BasicEnemyController : MonoBehaviour
     // ATTACK STATE
     private void EnterAttackState()
     {
-        Debug.Log("EnterAttackState");
+        aliveAnim.SetTrigger("Stare");
+        movementSpeed = 0f;
+        StartCoroutine(EnemAttack(1));
     }
 
     private void UpdateAttackState()
@@ -226,11 +237,21 @@ public class BasicEnemyController : MonoBehaviour
             Debug.Log("PlayerNotInRange");
             SwitchState(State.Moving);
         }
+
+        
+        
     }
 
     private void ExitAttackState()
     {
-        Debug.Log("LeavingAttackState");
+        
+    }
+
+    private void Attack()
+    {
+        Vector2 direction = playerTransform.position - transform.position;
+        direction.Normalize();
+        aliveRb.velocity = direction * attackingSpeed;
     }
 
     //--OTHER FUNCTIONS--------------------------------------------------------------------------------
@@ -328,4 +349,11 @@ public class BasicEnemyController : MonoBehaviour
     {
         playerInRange = false;
     }
+
+    IEnumerator EnemAttack(float attackNow)
+    {
+        yield return new WaitForSeconds(attackNow);
+        Attack();
+    }
+    
 }
