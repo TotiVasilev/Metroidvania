@@ -62,7 +62,7 @@ Material:
     - _RefractionStrenght: 1
     - _WaterSpeed: 0.1
     m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 0.54509807}
+    - _Color: {r: 0.19157171, g: 0.5985111, b: 0.990566, a: 0.54509807}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
