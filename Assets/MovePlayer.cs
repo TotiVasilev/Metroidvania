@@ -52,6 +52,8 @@ public class MovePlayer : MonoBehaviour
     public Transform attackPoint3;
     public float attackRange3 = 0.5f;
     public int attackDamage3 = 20;
+    public float attackMoveDistance;
+    public float jumpAttackForce;
 
     public GameObject HitBox;
     public GameObject HitBox3;
@@ -120,7 +122,7 @@ public class MovePlayer : MonoBehaviour
             if(!isAttacking)
             {
                 horizontal = Input.GetAxisRaw("Horizontal");
-              animator.SetFloat("Running", Math.Abs(horizontal));
+                animator.SetFloat("Running", Math.Abs(horizontal));
               
             }
            
@@ -165,6 +167,9 @@ public class MovePlayer : MonoBehaviour
         }
 
         Attack();
+        
+
+        
         //Horizontal movement
     
         
@@ -231,8 +236,9 @@ public class MovePlayer : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && !isAttacking)
         {
             isAttacking = true;
-           
+
             
+
             HitBox.SetActive(true);
             HitBox3.SetActive(false);
             
@@ -273,8 +279,16 @@ public class MovePlayer : MonoBehaviour
         }
         else
         {
-            
-            rb.velocity = new Vector2(0,0);
+            if (isFacingRight)
+            {
+                rb.velocity = new Vector2(attackMoveDistance, rb.velocity.y);
+                //rb.velocity = new Vector2(0,0);
+            }
+            else
+            {
+                rb.velocity = new Vector2(-attackMoveDistance, rb.velocity.y);
+            }
+
         }
         if(KBCounter <= 0)
         {
@@ -296,6 +310,11 @@ public class MovePlayer : MonoBehaviour
             KBCounter -= Time.deltaTime;
         }
         
+        if(!IsGrounded() && Input.GetMouseButtonDown(0))
+        {
+            attack3 = true;
+            rb.AddForce(new Vector2(0f, jumpAttackForce), ForceMode2D.Impulse);
+        }
     }
 
     private void Flip()
