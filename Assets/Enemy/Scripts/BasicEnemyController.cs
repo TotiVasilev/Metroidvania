@@ -8,7 +8,6 @@ public class BasicEnemyController : MonoBehaviour
 {
     
     private LevelSystem levelSystem;
-    
     public Sprite HitRenderer;
     public Sprite NormalRenderer;
     public SpriteRenderer rend;
@@ -63,6 +62,7 @@ public class BasicEnemyController : MonoBehaviour
     private bool
         groundDetected,
         wallDetected,
+        parried,
         playerDetected;
 
     [SerializeField] private GameObject alive;
@@ -80,6 +80,7 @@ public class BasicEnemyController : MonoBehaviour
     }
     private void Start()
     {
+        parried = true;
         canParry = false;
         alive = this.gameObject;
         aliveRb = alive.GetComponent<Rigidbody2D>();
@@ -137,6 +138,8 @@ public class BasicEnemyController : MonoBehaviour
                 UpdateDeadState();
                 break;
         }
+
+       
     }
 
     //--WALKING STATE--------------------------------------------------------------------------------
@@ -197,7 +200,7 @@ public class BasicEnemyController : MonoBehaviour
 
     private void UpdateKnockbackState()
     {
-        if(Time.time >= knockbackStartTime + knockbackDuration)
+        if(Time.time >= knockbackStartTime + knockbackDuration && !parried)
         {
             SwitchState(State.Moving);
         }
@@ -226,7 +229,7 @@ public class BasicEnemyController : MonoBehaviour
 
     private void UpdateDeadState()
     {
-
+        
     }
 
     private void ExitDeadState()
@@ -251,13 +254,18 @@ public class BasicEnemyController : MonoBehaviour
             SwitchState(State.Moving);
         }
 
-        
-        
+        if (canParry && playerMovement.isAttacking)
+        {
+
+            SwitchState(State.Parried);
+        }
+
     }
 
     private void ExitAttackState()
     {
         canParry = false;
+        Debug.Log("FALSE");
     }
 
     private void Attack()
@@ -272,6 +280,9 @@ public class BasicEnemyController : MonoBehaviour
 
     private void EnterParriedState()
     {
+        Debug.Log("PARRY");
+        movementSpeed = 0f;
+        parried = true;
 
     }
 

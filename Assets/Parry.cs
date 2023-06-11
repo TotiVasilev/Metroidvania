@@ -10,7 +10,7 @@ public class Parry : StateMachineBehaviour
         if(BasicEnemyController.instanceE)
         {
             //BasicEnemyController.instanceE.canParry = true;
-            Debug.Log("CanParry");
+            
         }
         
 
@@ -26,7 +26,7 @@ public class Parry : StateMachineBehaviour
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         //BasicEnemyController.instanceE.canParry = false;
-        Debug.Log("CanNOTParry");
+        
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()
