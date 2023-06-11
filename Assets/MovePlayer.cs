@@ -166,7 +166,7 @@ public class MovePlayer : MonoBehaviour
             }
         }
 
-        Attack();
+        
         
 
         
@@ -229,14 +229,14 @@ public class MovePlayer : MonoBehaviour
         }
     }
 
-    void Attack()
+    public void Attack()
     {
         
 
-        if (Input.GetMouseButtonDown(0) && !isAttacking)
-        {
-            
-            isAttacking = true;
+        
+        
+             
+           isAttacking = true;
 
             
 
@@ -253,7 +253,7 @@ public class MovePlayer : MonoBehaviour
             
 
             
-        }
+        
     }
 
     void OnDrawGizmosSelected()
