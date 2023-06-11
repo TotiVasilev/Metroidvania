@@ -17,7 +17,6 @@ public class BasicEnemyController : MonoBehaviour
         Moving,
         Knockback,
         Attack,
-        Parried,
         Dead
     }
 
@@ -62,7 +61,6 @@ public class BasicEnemyController : MonoBehaviour
     private bool
         groundDetected,
         wallDetected,
-        parried,
         playerDetected;
 
     [SerializeField] private GameObject alive;
@@ -80,8 +78,7 @@ public class BasicEnemyController : MonoBehaviour
     }
     private void Start()
     {
-        parried = true;
-        canParry = false;
+        
         alive = this.gameObject;
         aliveRb = alive.GetComponent<Rigidbody2D>();
         aliveAnim = alive.GetComponent<Animator>();
@@ -130,9 +127,6 @@ public class BasicEnemyController : MonoBehaviour
                 break;
             case State.Attack:
                 UpdateAttackState();
-                break;
-            case State.Parried:
-                UpdateParriedState();
                 break;
             case State.Dead:
                 UpdateDeadState();
@@ -200,7 +194,7 @@ public class BasicEnemyController : MonoBehaviour
 
     private void UpdateKnockbackState()
     {
-        if(Time.time >= knockbackStartTime + knockbackDuration && !parried)
+        if(Time.time >= knockbackStartTime + knockbackDuration)
         {
             SwitchState(State.Moving);
         }
@@ -254,11 +248,7 @@ public class BasicEnemyController : MonoBehaviour
             SwitchState(State.Moving);
         }
 
-        if (canParry && playerMovement.isAttacking)
-        {
-
-            SwitchState(State.Parried);
-        }
+       
 
     }
 
@@ -280,9 +270,9 @@ public class BasicEnemyController : MonoBehaviour
 
     private void EnterParriedState()
     {
-        Debug.Log("PARRY");
-        movementSpeed = 0f;
-        parried = true;
+        
+        
+        
 
     }
 
@@ -345,9 +335,6 @@ public class BasicEnemyController : MonoBehaviour
             case State.Knockback:
                 ExitKnockbackState();
                 break;
-            case State.Parried:
-                ExitParriedState();
-                break;
             case State.Dead:
                 ExitDeadState();
                 break;
@@ -363,9 +350,6 @@ public class BasicEnemyController : MonoBehaviour
                 break;
             case State.Knockback:
                 EnterKnockbackState();
-                break;
-            case State.Parried:
-                EnterParriedState();
                 break;
             case State.Dead:
                 EnterDeadState();
