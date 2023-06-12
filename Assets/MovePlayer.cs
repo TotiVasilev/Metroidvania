@@ -231,11 +231,11 @@ public class MovePlayer : MonoBehaviour
 
     public void Attack()
     {
-        
+
+
+
 
         
-        
-             
            isAttacking = true;
 
             
@@ -302,6 +302,7 @@ public class MovePlayer : MonoBehaviour
         {
             if(KnockFromRight == true)
             {
+                
                 rb.velocity = new Vector2(-KBForce, KBForce);
             }
             if(KnockFromRight == false)

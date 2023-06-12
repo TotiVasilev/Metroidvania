@@ -6,7 +6,7 @@ using UnityEngine.Events;
 
 public class BasicEnemyController : MonoBehaviour
 {
-    
+    public HPplayer P_HP;
     private LevelSystem levelSystem;
     public Sprite HitRenderer;
     public Sprite NormalRenderer;
@@ -20,6 +20,7 @@ public class BasicEnemyController : MonoBehaviour
         Dead
     }
 
+    public bool doDmgToPlayer;
     private State currentState;
 
     [SerializeField]
@@ -60,6 +61,7 @@ public class BasicEnemyController : MonoBehaviour
 
     private bool
         groundDetected,
+        
         wallDetected,
         playerDetected;
 
@@ -78,7 +80,7 @@ public class BasicEnemyController : MonoBehaviour
     }
     private void Start()
     {
-        
+        doDmgToPlayer = false;
         alive = this.gameObject;
         aliveRb = alive.GetComponent<Rigidbody2D>();
         aliveAnim = alive.GetComponent<Animator>();
@@ -98,8 +100,13 @@ public class BasicEnemyController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.tag == "Player")
+        if (!playerDetected)
         {
+            Flip();
+        }
+        if (collision.gameObject.tag == "Player" && doDmgToPlayer)
+        {
+            P_HP.UpdateHP(-10);
             playerMovement.KBCounter = playerMovement.KBTotalTime;
             if(collision.transform.position.x <= transform.position.x)
             {
@@ -256,10 +263,12 @@ public class BasicEnemyController : MonoBehaviour
     {
         canParry = false;
         Debug.Log("FALSE");
+        doDmgToPlayer = false;
     }
 
     private void Attack()
     {
+        doDmgToPlayer = true;
         canParry = true;
         Vector2 direction = playerTransform.position - transform.position;
         direction.Normalize();
