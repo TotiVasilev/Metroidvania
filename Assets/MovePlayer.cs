@@ -338,6 +338,11 @@ public class MovePlayer : MonoBehaviour
        
     }
 
-
+    
+    public void Interaction()
+    {
+       
+        Debug.Log("TALK");
+    }
 
 }
