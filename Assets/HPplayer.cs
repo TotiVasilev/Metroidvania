@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class HPplayer : MonoBehaviour
 {
+    public CheckpointController deathController;
     public Slider hpSlider;
     public int maxHP = 100;
     private int currentHP;
@@ -24,5 +25,11 @@ public class HPplayer : MonoBehaviour
         hpSlider.value = currentHP;
     }
     // Update is called once per frame
-
+    private void Update()
+    {
+        if (currentHP <= 0)
+        {
+            deathController.Die();
+        }
+    }
 }
