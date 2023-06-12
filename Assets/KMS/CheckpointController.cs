@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CheckpointController : MonoBehaviour
 {
+    public HPplayer playerHP;
     public GameObject DeathScreen;
     public Vector2 startPos;
     SpriteRenderer spriteRenderer;
@@ -37,6 +38,11 @@ public class CheckpointController : MonoBehaviour
         StartCoroutine(Respawn(0.5f));
     
     }
+    public void Dead()
+    {
+        StartCoroutine(RespawnWhenDead(0.5f));
+        StartCoroutine(LoadHP(1f));
+    }
 
     IEnumerator Respawn(float duration)
     {
@@ -45,5 +51,19 @@ public class CheckpointController : MonoBehaviour
         yield return new WaitForSeconds(duration);
         transform.position = startPos;
         spriteRenderer.enabled=true;
+    }
+    IEnumerator RespawnWhenDead(float durationD)
+    {
+
+        Instantiate(DeathScreen);
+        yield return new WaitForSeconds(durationD);
+        transform.position = startPos;
+        
+    }
+    IEnumerator LoadHP(float after)
+    {
+        
+        yield return new WaitForSeconds(after);
+        playerHP.UpdateHP(40);
     }
 }
