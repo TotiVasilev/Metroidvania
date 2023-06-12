@@ -64,7 +64,6 @@ public class CheckpointController : MonoBehaviour
     {
         
         yield return new WaitForSeconds(after);
-
         playerHP.UpdateHP(40);
     }
 }
