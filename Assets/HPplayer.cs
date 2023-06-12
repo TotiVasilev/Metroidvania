@@ -23,13 +23,16 @@ public class HPplayer : MonoBehaviour
         currentHP += amount;
         currentHP = Mathf.Clamp(currentHP, 0, maxHP);
         hpSlider.value = currentHP;
+        if (currentHP <= 0)
+        {
+            
+            deathController.Dead();
+            
+        }
     }
     // Update is called once per frame
     private void Update()
     {
-        if (currentHP <= 0)
-        {
-            deathController.Die();
-        }
+        
     }
 }
