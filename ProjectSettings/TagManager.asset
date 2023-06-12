@@ -50,3 +50,6 @@ TagManager:
   - name: Background
     uniqueID: 1983353017
     locked: 0
+  - name: Particle effect
+    uniqueID: 1640183587
+    locked: 0
