@@ -18,6 +18,7 @@ public class DIntro : MonoBehaviour
     public GameObject Text4;
     public bool lockkk = true;
 
+    public GameObject PlayerUI;
     public Image pPortrait;
 
     public Sprite pIdle;
@@ -84,6 +85,55 @@ public class DIntro : MonoBehaviour
                 }
 
             }
+    }
+
+    public void Dialog()
+    {
+        if (lockkk == false)
+        {
+            if (Text1.activeSelf == true && lockkk == false)
+            {
+                Next.SetActive(false);
+                pPortrait.sprite = pIdle;
+
+                Text1.SetActive(false);
+                Text2.SetActive(true);
+
+                lockkk = true;
+                StartCoroutine(Cooldown());
+            }
+            else if (Text2.activeSelf == true && lockkk == false)
+            {
+                Next.SetActive(false);
+                pPortrait.sprite = pIdle;
+
+                Text2.SetActive(false);
+                Text3.SetActive(true);
+
+                lockkk = true;
+                StartCoroutine(Cooldown());
+            }
+            else if (Text3.activeSelf == true && lockkk == false)
+            {
+                Next.SetActive(false);
+                pPortrait.sprite = pAngry;
+
+                Text3.SetActive(false);
+                Text4.SetActive(true);
+
+                lockkk = true;
+                StartCoroutine(Cooldown());
+            }
+
+            else if (Text4.activeSelf == true && lockkk == false)
+            {
+                Goals.SetActive(true);
+                player.GetComponent<MovePlayer>().enabled = true;
+                Destroy(gameObject);
+                PlayerUI.SetActive(true);
+            }
+
+        }
     }
     
     IEnumerator Cooldown()

@@ -13,24 +13,28 @@ public class DesWall : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.R) && canBeDes == true)
-            {
-                if(fowA1 != null)
-                {
-                    fowA1.GetComponent<Animator>().SetTrigger("deac");
-                }
-                if(fowA2 != null)
-                {
-                    fowA2.GetComponent<Animator>().SetTrigger("deac");
-                }
-                if(fowA3 != null)
-                {
-                    fowA3.GetComponent<Animator>().SetTrigger("deac");
-                }
-
-                Destroy(gameObject);
-            }
         
+        
+    }
+    public void destroyWalls()
+    {
+        if (canBeDes == true)
+        {
+            if (fowA1 != null)
+            {
+                fowA1.GetComponent<Animator>().SetTrigger("deac");
+            }
+            if (fowA2 != null)
+            {
+                fowA2.GetComponent<Animator>().SetTrigger("deac");
+            }
+            if (fowA3 != null)
+            {
+                fowA3.GetComponent<Animator>().SetTrigger("deac");
+            }
+
+            Destroy(gameObject);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
