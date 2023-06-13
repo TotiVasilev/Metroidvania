@@ -42,6 +42,7 @@ public class Lift : MonoBehaviour
         {
             isMovingDown = false;
             isMoving = true;
+            pressY.SetActive(false);
         }
     }
     private void FixedUpdate()
