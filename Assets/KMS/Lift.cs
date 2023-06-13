@@ -6,14 +6,14 @@ public class Lift : MonoBehaviour
 {
     public Sprite notActivated;
     public Sprite isActivated;
-
+    public GameObject pressY;
     public bool canUp = false;
     public bool isMoving = false;
     public bool isMovingDown = false;
     public Vector2 goToPosition;
     public Vector2 startPosition;
     public float LiftSpeed;
-
+    
 
     // Start is called before the first frame update
     void Start()
@@ -61,7 +61,7 @@ public class Lift : MonoBehaviour
         if(player!=null)
         {
             canUp = true;
-
+            pressY.SetActive(true);
         }
 
     }
@@ -72,7 +72,7 @@ public class Lift : MonoBehaviour
         if(player!=null)
         {
             canUp = false;
-
+            pressY.SetActive(false);
         }
 
     }
