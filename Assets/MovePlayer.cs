@@ -59,9 +59,9 @@ public class MovePlayer : MonoBehaviour
     public GameObject HitBox3;
 
     [Header("AttackShake")]
-    [SerializeField] private cameraShake camerashaking;
-    [SerializeField] private float shakeIntensity = 5;
-    [SerializeField] private float shakeTime = 1;
+    [SerializeField] public cameraShake camerashaking;
+    [SerializeField] public float shakeIntensity = 5;
+    [SerializeField] public float shakeTime = 1;
     
 
     private void Awake()
