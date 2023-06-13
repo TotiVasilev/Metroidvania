@@ -5,9 +5,9 @@ using UnityEngine.UI;
 
 public class DIntro : MonoBehaviour
 {
-    //[SerializeField] public cameraShake camerashaking;
-    //[SerializeField] public float shakeIntensity = 10;
-    //[SerializeField] public float shakeTime = 6;
+    [SerializeField] public cameraShake camerashaking;
+    [SerializeField] public float shakeIntensity = 10;
+    [SerializeField] public float shakeTime = 6;
 
     public GameObject player;
     public GameObject Goals;
@@ -29,7 +29,7 @@ public class DIntro : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //camerashaking.ShakeCamera(shakeIntensity, shakeTime);
+        camerashaking.ShakeCamera(shakeIntensity, shakeTime);
 
         player.GetComponent<MovePlayer>().enabled = false;
         Goals.SetActive(false);

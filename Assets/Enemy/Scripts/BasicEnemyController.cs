@@ -106,7 +106,7 @@ public class BasicEnemyController : MonoBehaviour
         }
         if (collision.gameObject.tag == "Player" && doDmgToPlayer)
         {
-            P_HP.UpdateHP(-50);
+            P_HP.UpdateHP(-10);
             playerMovement.KBCounter = playerMovement.KBTotalTime;
             if(collision.transform.position.x <= transform.position.x)
             {
