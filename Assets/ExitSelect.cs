@@ -3,17 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class PlaySelected : MonoBehaviour, ISelectHandler
+public class ExitSelect : MonoBehaviour, ISelectHandler
 {
-    public GameObject WalkingAnim;
-    public GameObject IsAttackingAnim;
     public GameObject EnemiAnim;
+    public GameObject IsAttackingAnim;
+    public GameObject WalkingAnim;
     public void OnSelect(BaseEventData eventData)
     {
-        WalkingAnim.SetActive(true);
+        EnemiAnim.SetActive(true);
         IsAttackingAnim.SetActive(false);
-        EnemiAnim.SetActive(false);
+        WalkingAnim.SetActive(false);
     }
-
-    
 }
