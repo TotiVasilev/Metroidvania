@@ -25,17 +25,25 @@ public class Lift : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.R) && canUp == true )
-        {
-            isMovingDown = false;
-            isMoving = true;
-        }
+        //if(Input.GetKeyDown(KeyCode.R) && canUp == true )
+        //{
+        //  isMovingDown = false;
+        //  isMoving = true;
+        // }
 
         
 
         
     }
-
+    
+    public void ActivateLift()
+    {
+        if ( canUp == true)
+        {
+            isMovingDown = false;
+            isMoving = true;
+        }
+    }
     private void FixedUpdate()
     {
         if (isMoving == true)

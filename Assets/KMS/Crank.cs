@@ -19,16 +19,26 @@ public class Crank : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-         if(Input.GetKeyDown(KeyCode.R) && canUp == true)
+         //if(Input.GetKeyDown(KeyCode.R) && canUp == true)
+        //{
+          //  nextLevelGoer1.SetActive(true);
+          //  nextLevelGoer2.SetActive(true);
+           // nextLevelGoer3.SetActive(true);
+           // this.GetComponent<SpriteRenderer>().sprite = activated;
+       // }
+        
+    }
+    
+    public void ActivateCrank()
+    {
+        if (canUp == true)
         {
             nextLevelGoer1.SetActive(true);
             nextLevelGoer2.SetActive(true);
             nextLevelGoer3.SetActive(true);
             this.GetComponent<SpriteRenderer>().sprite = activated;
         }
-        
     }
-
     private void OnTriggerEnter2D(Collider2D other)
     {
         var player = other.GetComponent<CheckpointController>();
