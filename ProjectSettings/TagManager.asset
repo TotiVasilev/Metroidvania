@@ -8,8 +8,6 @@ TagManager:
   - Toilet
   - Alive
   - Enemy
-  - Death
-  - Checkpoint
   layers:
   - Default
   - TransparentFX
