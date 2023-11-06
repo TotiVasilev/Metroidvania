@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 695262b9b1c970541b44b970e9d54033
+guid: 4f0cfbd2e6c26f34dac8b95d4369bece
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 31
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -105,13 +105,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Steni_0
+      name: Jump_Sheet_0
       rect:
         serializedVersion: 2
-        x: 16
-        y: 32
-        width: 16
-        height: 16
+        x: 0
+        y: 0
+        width: 112
+        height: 80
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -119,20 +119,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9a8d958e9af70e64792d18b31504e773
-      internalID: -1465588850
+      spriteID: a076d82b1aba444408c4780d9303095e
+      internalID: 263514018
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Steni_1
+      name: Jump_Sheet_1
       rect:
         serializedVersion: 2
-        x: 48
-        y: 32
-        width: 16
-        height: 16
+        x: 112
+        y: 0
+        width: 112
+        height: 80
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,8 +140,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7077543dede22b54c853838d5d6f20fa
-      internalID: -1337558852
+      spriteID: e78f7a4c3f2d78e458404ec70219e717
+      internalID: -1110979420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jump_Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 0
+        width: 112
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4479a5d0fa0236f4c966285c31c3f925
+      internalID: -1498391116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jump_Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 0
+        width: 112
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0477c257748065345b986faedb23dbf2
+      internalID: -567700181
       vertices: []
       indices: 
       edges: []
@@ -157,8 +199,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Steni_0: -1465588850
-      Steni_1: -1337558852
+      Jump_Sheet_2: -1498391116
+      Jump_Sheet_3: -567700181
+      Jump_Sheet_0: 263514018
+      Jump_Sheet_1: -1110979420
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
